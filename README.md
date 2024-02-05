@@ -8,4 +8,4 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 Front End Planning
-https://miro.com/app/board/uXjVN0g1egY=/?share_link_id=182866418942
+https://miro.com/app/board/uXjVNxQ_ai8=/?share_link_id=201790811205
