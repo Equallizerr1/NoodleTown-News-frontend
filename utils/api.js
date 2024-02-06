@@ -8,6 +8,10 @@ export const getEndpoints = () => {
 		});
 };
 
-// export const getArticles = () => {
-// 	return axios.get();
-// };
+export const getArticles = () => {
+	return axios
+		.get("https://noodletownnews.onrender.com/api/articles")
+		.then(({ data: articles }) => {
+			return articles;
+		});
+};
