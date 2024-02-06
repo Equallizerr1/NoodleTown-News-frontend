@@ -33,7 +33,7 @@ export const Home = () => {
 					{Array.from(Array(2)).map((_, index) => (
 						<Grid item xs={2} sm={4} md={4} key={index}>
 					*/}
-				<Item >
+				<Item>
 					<Article articles={articleArray} />
 				</Item>
 				{/* </Grid>

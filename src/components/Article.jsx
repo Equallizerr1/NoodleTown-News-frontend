@@ -5,12 +5,15 @@ import CardContent from "@mui/material/CardContent";
 import { CardMedia } from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { TableRowsLoader } from "./TableRowsLoader";
 
 export const Article = ({ articles }) => {
 	return (
 		<ul>
-			{articles.map((article) => {
-				return (
+			{!articles.length ? (
+				<TableRowsLoader rowsNum={37} />
+			) : (
+				articles?.map((article) => (
 					<li key={article.article_id}>
 						<Card sx={{ minWidth: 275 }}>
 							<CardMedia sx={{ height: 200 }} image={article.article_img_url} />
@@ -27,8 +30,8 @@ export const Article = ({ articles }) => {
 							</CardActions>
 						</Card>
 					</li>
-				);
-			})}
+				))
+			)}
 		</ul>
 	);
 };
