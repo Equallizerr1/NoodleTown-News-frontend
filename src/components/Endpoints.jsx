@@ -21,7 +21,7 @@ export const Endpoints = () => {
 
 	return (
 		<TableContainer component={Paper}>
-			<Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
+			<Table size="medium" aria-label="a dense table">
 				<TableHead sx={{ backgroundColor: "teal" }}>
 					<TableRow>
 						<TableCell key={"endpoints"}>
@@ -38,7 +38,10 @@ export const Endpoints = () => {
 					) : (
 						endpointList?.map((row, index) => (
 							<TableRow key={index + 1}>
-								<TableCell component="th" scope="row">
+								<TableCell
+									sx={{ verticalAlign: "top" }}
+									component="th"
+									scope="row">
 									{row[0]}
 								</TableCell>
 								<TableCell>{row[1].description}</TableCell>
