@@ -12,3 +12,11 @@ export const getArticles = () => {
 		return articles;
 	});
 };
+
+export const getArticleById = (article_id) => {
+	return axios
+		.get(`${baseUrl}/articles/${article_id}`)
+		.then(({ data: article }) => {
+			return article;
+		});
+};
