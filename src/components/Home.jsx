@@ -7,7 +7,6 @@ export const Home = () => {
 	const [articleArray, setArticleArray] = useState([]);
 	useEffect(() => {
 		getArticles().then(({ articles }) => {
-			
 			setTimeout(() => setArticleArray(articles));
 		});
 	}, []);

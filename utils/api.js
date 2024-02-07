@@ -17,16 +17,22 @@ export const getArticles = () => {
 	});
 };
 
-export const getArticleById = (article_id) => {
-	return ntnewsApi
-		.get(`/articles/${article_id}`)
-		.then(({ data: article }) => {
-			return article;
-		})
-		.then((article) => {
-			console.log(article);
-			return article;
-		});
-};
+// export const getArticleById = (article_id) => {
+// 	return ntnewsApi
+// 		.get(`/articles/${article_id}`)
+// 		.then(({ data: article }) => {
+// 			return article;
+// 		})
+// 		.then((article) => {
+// 			return article;
+// 		});
+// };
 
-export const getComments = () => {};
+export const getArticleInfo = async (article_id) => {
+	const baseURL = "https://noodletownnews.onrender.com/api";
+	const [first, second] = await Promise.all([
+		axios.get(`${baseURL}/articles/${article_id}`),
+		axios.get(`${baseURL}/articles/${article_id}/comments`),
+	]);
+	return [first, second];
+};
