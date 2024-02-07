@@ -1,24 +1,32 @@
 import axios from "axios";
 
-const instance = axios.create({
+const ntnewsApi = axios.create({
 	baseURL: "https://noodletownnews.onrender.com/api",
 	timeout: 2500,
 });
 
 export const getEndpoints = () => {
-	return instance().then(({ data: endpoints }) => {
+	return ntnewsApi.get().then(({ data: endpoints }) => {
 		return endpoints;
 	});
 };
 
 export const getArticles = () => {
-	return instance(`/articles`).then(({ data: articles }) => {
+	return ntnewsApi.get("/articles").then(({ data: articles }) => {
 		return articles;
 	});
 };
 
 export const getArticleById = (article_id) => {
-	return instance(`/articles/${article_id}`).then(({ data: article }) => {
-		return article;
-	});
+	return ntnewsApi
+		.get(`/articles/${article_id}`)
+		.then(({ data: article }) => {
+			return article;
+		})
+		.then((article) => {
+			console.log(article);
+			return article;
+		});
 };
+
+export const getComments = () => {};
