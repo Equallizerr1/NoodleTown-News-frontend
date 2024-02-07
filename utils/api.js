@@ -1,22 +1,24 @@
 import axios from "axios";
-const baseUrl = "https://noodletownnews.onrender.com/api";
+
+const instance = axios.create({
+	baseURL: "https://noodletownnews.onrender.com/api",
+	timeout: 2500,
+});
 
 export const getEndpoints = () => {
-	return axios.get(`${baseUrl}`).then(({ data: endpoints }) => {
+	return instance().then(({ data: endpoints }) => {
 		return endpoints;
 	});
 };
 
 export const getArticles = () => {
-	return axios.get(`${baseUrl}/articles`).then(({ data: articles }) => {
+	return instance(`/articles`).then(({ data: articles }) => {
 		return articles;
 	});
 };
 
 export const getArticleById = (article_id) => {
-	return axios
-		.get(`${baseUrl}/articles/${article_id}`)
-		.then(({ data: article }) => {
-			return article;
-		});
+	return instance(`/articles/${article_id}`).then(({ data: article }) => {
+		return article;
+	});
 };

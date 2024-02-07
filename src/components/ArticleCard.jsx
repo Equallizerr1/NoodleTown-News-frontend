@@ -11,6 +11,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
+import { timeAgo } from "../../utils/dateFormatter";
+const bull = "•";
 
 export const ArticleCard = ({ articles }) => {
 	return (
@@ -23,13 +25,17 @@ export const ArticleCard = ({ articles }) => {
 								<CardHeader
 									sx={{ textAlign: "left" }}
 									avatar={
-										<Avatar sx={{ bgcolor: red[500] }} aria-label="author">
+										<Avatar
+											sx={{ bgcolor: red[500] }}
+											aria-label={article.author}>
 											{article.author[0].toUpperCase()}
 										</Avatar>
 									}
 									titleTypographyProps={{ variant: "h6" }}
 									title={article.title}
-									subheader={article.created_at}
+									subheader={`${article.topic} ${bull} ${timeAgo(
+										article.created_at
+									)}`}
 								/>
 								<CardContent>
 									<CardMedia

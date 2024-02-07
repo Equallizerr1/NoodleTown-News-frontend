@@ -9,17 +9,19 @@ import { CardMedia, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
+import { dateFormatter } from "../../utils/dateFormatter";
 
 export const Article = () => {
 	const { article_id } = useParams();
 	const [article, setArticle] = useState([]);
-
 	useEffect(() => {
 		getArticleById(article_id).then((res) => {
 			setArticle(res.article);
 		});
 	}, []);
 
+	//dateFormatter(article[0].created_at);
+	//console.log(article[0].created_at);
 	return (
 		<ul>
 			{article.map((article) => (
@@ -34,7 +36,7 @@ export const Article = () => {
 							<Typography
 								sx={{ margin: "auto", paddingX: 20, textAlign: "left" }}
 								variant="body2">
-								{article.created_at}
+								{dateFormatter(article.created_at)}
 							</Typography>
 							<br />
 							<Typography
