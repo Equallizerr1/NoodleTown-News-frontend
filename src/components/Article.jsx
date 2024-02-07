@@ -9,7 +9,6 @@ import { CardMedia, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import { Box } from "@mui/material";
 
 export const Article = () => {
 	const { article_id } = useParams();
@@ -31,6 +30,11 @@ export const Article = () => {
 							<br />
 							<Typography sx={{ paddingX: 10 }} variant="h4">
 								{article.title}
+							</Typography>
+							<Typography
+								sx={{ margin: "auto", paddingX: 20, textAlign: "left" }}
+								variant="body2">
+								{article.created_at}
 							</Typography>
 							<br />
 							<Typography

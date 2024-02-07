@@ -21,11 +21,13 @@ export const ArticleCard = ({ articles }) => {
 						<Link to={`/article/${article.article_id}`}>
 							<CardActionArea onClick={() => {}}>
 								<CardHeader
+									sx={{ textAlign: "left" }}
 									avatar={
 										<Avatar sx={{ bgcolor: red[500] }} aria-label="author">
 											{article.author[0].toUpperCase()}
 										</Avatar>
 									}
+									titleTypographyProps={{ variant: "h6" }}
 									title={article.title}
 									subheader={article.created_at}
 								/>
