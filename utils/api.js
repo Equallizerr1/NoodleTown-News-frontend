@@ -2,7 +2,6 @@ import axios from "axios";
 
 const ntnewsApi = axios.create({
 	baseURL: "https://noodletownnews.onrender.com/api",
-	timeout: 2500,
 });
 
 export const getEndpoints = () => {
