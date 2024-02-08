@@ -11,6 +11,7 @@ export const Home = () => {
 			setArticleArray(articles);
 		});
 	}, []);
+
 	return (
 		<>
 			{!articleArray.length ? (

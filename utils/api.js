@@ -32,21 +32,9 @@ export const getComments = (article_id) => {
 
 // PATCH data format = {inc_votes: 1,} {inc_votes: -1,}
 
-export const upVote = (article_id) => {
+export const vote = (article_id, voteData) => {
 	return ntnewsApi
-		.patch(`/articles/${article_id}`, {
-			inc_votes: +1,
-		})
-		.then(({ data: { article } }) => {
-			return article.votes;
-		});
-};
-
-export const downVote = (article_id) => {
-	return ntnewsApi
-		.patch(`/articles/${article_id}`, {
-			inc_votes: -1,
-		})
+		.patch(`/articles/${article_id}`, voteData)
 		.then(({ data: { article } }) => {
 			return article.votes;
 		});

@@ -1,13 +1,17 @@
-import { upVote, downVote } from "./api";
+import { vote } from "./api";
 
 export const voteCounter = (id, symbol) => {
-	const upOrDown = symbol === "+" ? true : false;
-	upOrDown
-		? upVote(id).then((res) => {
+	const voteData = {
+		inc_votes: `${symbol}1`,
+	};
+	symbol === "+"
+		? vote(id, voteData).then((res) => {
+				console.log(symbol);
 				console.log(res);
 				return res;
 		  })
-		: downVote(id).then((res) => {
+		: vote(id, voteData).then((res) => {
+				console.log(symbol);
 				console.log(res);
 				return res;
 		  });

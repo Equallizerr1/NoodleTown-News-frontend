@@ -3,11 +3,12 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import { CardMedia } from "@mui/material";
+import { CardMedia, Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { red } from "@mui/material/colors";
 import IconButton from "@mui/material/IconButton";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import ShareIcon from "@mui/icons-material/Share";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -48,18 +49,21 @@ export const ArticleList = ({ articles }) => {
 						</Link>
 						<CardActions>
 							<IconButton
-								
 								onClick={() => {
 									voteCounter(article.article_id, "+");
 								}}
-								aria-label="add to favourites">
-								<FavoriteIcon />
+								aria-label="upvote arrow">
+								<ArrowCircleUpIcon />
 							</IconButton>
+							<Typography>{`${article.votes} votes`}</Typography>
 							<IconButton
 								onClick={() => {
 									voteCounter(article.article_id, "-");
 								}}
-								aria-label="share">
+								aria-label="downvote arrow">
+								<ArrowCircleDownIcon />
+							</IconButton>
+							<IconButton aria-label="share">
 								<ShareIcon />
 							</IconButton>
 						</CardActions>
