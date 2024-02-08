@@ -30,6 +30,28 @@ export const getComments = (article_id) => {
 		});
 };
 
+// PATCH data format = {inc_votes: 1,} {inc_votes: -1,}
+
+export const upVote = (article_id) => {
+	return ntnewsApi
+		.patch(`/articles/${article_id}`, {
+			inc_votes: +1,
+		})
+		.then(({ data: { article } }) => {
+			return article.votes;
+		});
+};
+
+export const downVote = (article_id) => {
+	return ntnewsApi
+		.patch(`/articles/${article_id}`, {
+			inc_votes: -1,
+		})
+		.then(({ data: { article } }) => {
+			return article.votes;
+		});
+};
+
 // export const getArticleInfo = async (article_id) => {
 // 	const baseURL = "https://noodletownnews.onrender.com/api";
 // 	const [first, second] = await Promise.all([

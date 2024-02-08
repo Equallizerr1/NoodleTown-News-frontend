@@ -12,6 +12,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 import { timeAgo } from "../../utils/dateFormatter";
+import { voteCounter } from "../../utils/voteCounter";
 const bull = "•";
 
 export const ArticleList = ({ articles }) => {
@@ -46,10 +47,19 @@ export const ArticleList = ({ articles }) => {
 							</CardActionArea>
 						</Link>
 						<CardActions>
-							<IconButton aria-label="add to favourites">
+							<IconButton
+								
+								onClick={() => {
+									voteCounter(article.article_id, "+");
+								}}
+								aria-label="add to favourites">
 								<FavoriteIcon />
 							</IconButton>
-							<IconButton aria-label="share">
+							<IconButton
+								onClick={() => {
+									voteCounter(article.article_id, "-");
+								}}
+								aria-label="share">
 								<ShareIcon />
 							</IconButton>
 						</CardActions>
