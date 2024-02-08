@@ -8,7 +8,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 
 export const Comments = ({ comments }) => {
-	console.log(comments);
 	return (
 		<>
 			{!comments.length ? (
