@@ -18,10 +18,9 @@ export const Endpoints = () => {
 			setTimeout(() => setEndpointList(Object.entries(endpoints)), 500);
 		});
 	}, []);
-
 	return (
 		<TableContainer component={Paper}>
-			<Table size="medium" aria-label="a dense table">
+			<Table size="small" aria-label="a dense table">
 				<TableHead sx={{ backgroundColor: "teal" }}>
 					<TableRow>
 						<TableCell key={"endpoints"}>
@@ -30,6 +29,12 @@ export const Endpoints = () => {
 						<TableCell key={"description"}>
 							<Typography variant="h6">Description</Typography>
 						</TableCell>
+						<TableCell key={"queries"}>
+							<Typography variant="h6">Queries</Typography>
+						</TableCell>
+						<TableCell key={"example response"}>
+							<Typography variant="h6">Example Response</Typography>
+						</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -37,14 +42,16 @@ export const Endpoints = () => {
 						<TableRowsLoader rowsNum={6} />
 					) : (
 						endpointList?.map((row, index) => (
-							<TableRow key={index + 1}>
+							<TableRow key={index}>
 								<TableCell
 									sx={{ verticalAlign: "top" }}
 									component="th"
 									scope="row">
-									{row[0]}
+									{JSON.stringify(row[0])}
 								</TableCell>
 								<TableCell>{row[1].description}</TableCell>
+								<TableCell>{JSON.stringify(row[1].queries)}</TableCell>
+								<TableCell>{JSON.stringify(row[1].exampleResponse)}</TableCell>
 							</TableRow>
 						))
 					)}

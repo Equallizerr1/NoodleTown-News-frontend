@@ -12,6 +12,12 @@ export const TableRowsLoader = ({ rowsNum }) => {
 			<TableCell>
 				<Skeleton animation="wave" variant="text" />
 			</TableCell>
+			<TableCell>
+				<Skeleton animation="wave" variant="text" />
+			</TableCell>
+			<TableCell>
+				<Skeleton animation="wave" variant="text" />
+			</TableCell>
 		</TableRow>
 	));
 };
