@@ -42,13 +42,13 @@ export const ArticleViewer = ({ props }) => {
 										/>
 										<hr />
 										<br />
-										<Typography sx={{ paddingX: 10 }} variant="h4">
+										<Typography sx={{ paddingX: 5 }} variant="h4">
 											{article.title}
 										</Typography>
 										<hr />
 										<br />
 										<Typography
-											sx={{ margin: "auto", paddingX: 20, textAlign: "left" }}
+											sx={{ margin: "auto", paddingX: 10, textAlign: "left" }}
 											variant="body1">
 											{article.body}
 										</Typography>
