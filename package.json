@@ -14,7 +14,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.15.7",
-    "@mui/material": "^5.15.7",
+    "@mui/material": "^5.15.9",
     "axios": "^1.6.7",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
