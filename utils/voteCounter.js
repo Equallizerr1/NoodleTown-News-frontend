@@ -6,13 +6,9 @@ export const voteCounter = (id, symbol) => {
 	};
 	symbol === "+"
 		? vote(id, voteData).then((res) => {
-				console.log(symbol);
-				console.log(res);
 				return res;
 		  })
 		: vote(id, voteData).then((res) => {
-				console.log(symbol);
-				console.log(res);
 				return res;
 		  });
 };
