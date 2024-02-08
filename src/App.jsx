@@ -5,13 +5,14 @@ import { Home } from "./components/Home";
 import { Endpoints } from "./components/Endpoints";
 import { Topics } from "./components/Topics";
 import { Article } from "./components/Article";
+import { ArticleList } from "./components/ArticleList";
 
 function App() {
 	return (
 		<>
 			<Header />
 			<Routes>
-				<Route path="/" element={<Home />} />
+				<Route path="/" element={<ArticleList />} />
 				<Route path="/topics" element={<Topics />} />
 				<Route path="/endpoints" element={<Endpoints />} />
 				<Route path="/article/:article_id" element={<Article />} />

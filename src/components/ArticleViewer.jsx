@@ -5,11 +5,14 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import ShareIcon from "@mui/icons-material/Share";
 import { dateFormatter } from "../../utils/dateFormatter";
 import LinearLoading from "./LoadingBar";
 import { Comments } from "./Comments";
+import { voteCounter } from "../../utils/voteCounter";
+
 const bull = "•";
 export const ArticleViewer = ({ article }) => {
 	return (
@@ -51,8 +54,20 @@ export const ArticleViewer = ({ article }) => {
 										</Typography>
 									</CardContent>
 									<CardActions>
-										<IconButton aria-label="add to favourites">
-											<FavoriteIcon />
+										<IconButton
+											onClick={() => {
+												voteCounter(article.article_id, "+");
+											}}
+											aria-label="upvote arrow">
+											<ArrowCircleUpIcon />
+										</IconButton>
+										<Typography>{`${article.votes} votes`}</Typography>
+										<IconButton
+											onClick={() => {
+												voteCounter(article.article_id, "-");
+											}}
+											aria-label="downvote arrow">
+											<ArrowCircleDownIcon />
 										</IconButton>
 										<IconButton aria-label="share">
 											<ShareIcon />
