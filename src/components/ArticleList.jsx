@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { timeAgo } from "../../utils/dateFormatter";
 const bull = "•";
 
-export const ArticleCard = ({ articles }) => {
+export const ArticleList = ({ articles }) => {
 	return (
 		<ul>
 			{articles.map((article) => (

@@ -1,15 +1,23 @@
-import { ArticleCard } from "./ArticleCard";
+import { ArticleList } from "./ArticleList";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getArticles } from "../../utils/api";
+import LinearLoading from "./LoadingBar";
 
 export const Home = () => {
 	const [articleArray, setArticleArray] = useState([]);
 	useEffect(() => {
 		getArticles().then(({ articles }) => {
-			
-			setTimeout(() => setArticleArray(articles));
+			setArticleArray(articles);
 		});
 	}, []);
-	return <ArticleCard articles={articleArray} />;
+	return (
+		<>
+			{!articleArray.length ? (
+				<LinearLoading />
+			) : (
+				<ArticleList articles={articleArray} />
+			)}
+		</>
+	);
 };
