@@ -11,18 +11,15 @@ import { dateFormatter } from "../../utils/dateFormatter";
 import LinearLoading from "./LoadingBar";
 import { Comments } from "./Comments";
 const bull = "•";
-export const ArticleViewer = ({ props }) => {
-	const articleProps = props[0];
-	const commentProps = props[1];
-
+export const ArticleViewer = ({ article }) => {
 	return (
 		<>
-			{!props.length ? (
+			{!article.length ? (
 				<LinearLoading />
 			) : (
 				<>
 					<ul>
-						{articleProps?.map((article) => (
+						{article?.map((article) => (
 							<li key={article.article_id}>
 								<Card
 									sx={{ display: "block", maxWidth: "100%", margin: "auto" }}>
@@ -65,7 +62,7 @@ export const ArticleViewer = ({ props }) => {
 							</li>
 						))}
 					</ul>
-					<Comments comments={commentProps} />
+					<Comments id={article[0].article_id} />
 				</>
 			)}
 		</>

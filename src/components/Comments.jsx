@@ -6,9 +6,17 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
+import { useState, useEffect } from "react";
+import { getComments } from "../../utils/api";
 
-export const Comments = ({ comments }) => {
-	console.log(comments);
+export const Comments = ({ id }) => {
+	const [comments, setComments] = useState([]);
+	useEffect(() => {
+		getComments(id).then(({ comments }) => {
+			setComments(comments);
+		});
+	}, []);
+
 	return (
 		<>
 			{!comments.length ? (

@@ -1,4 +1,4 @@
-import { ArticleListCard } from "./ArticleListCard";
+import { ArticleList } from "./ArticleList";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getArticles } from "../../utils/api";
@@ -16,7 +16,7 @@ export const Home = () => {
 			{!articleArray.length ? (
 				<LinearLoading />
 			) : (
-				<ArticleListCard articles={articleArray} />
+				<ArticleList articles={articleArray} />
 			)}
 		</>
 	);
