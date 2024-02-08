@@ -22,9 +22,14 @@ export const getArticles = () => {
 // 		.then(({ data: article }) => {
 // 			return article;
 // 		})
-// 		.then((article) => {
+// };
+
+// export const getComments = (article_id) => {
+// 	return ntnewsApi
+// 		.get(`/articles/${article_id}/comments`)
+// 		.then(({ data: article }) => {
 // 			return article;
-// 		});
+// 		})
 // };
 
 export const getArticleInfo = async (article_id) => {
