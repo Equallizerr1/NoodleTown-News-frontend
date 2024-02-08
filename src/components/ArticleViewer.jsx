@@ -28,14 +28,13 @@ export const ArticleViewer = ({ props }) => {
 									sx={{ display: "block", maxWidth: "100%", margin: "auto" }}>
 									<CardContent>
 										<Typography
-											sx={{ margin: "auto", textAlign: "left", paddingTop: 1 }}
+											sx={{ margin: "auto", textAlign: "left", paddingY: 1 }}
 											variant="body2">
 											{`${article.topic} ${bull} ${dateFormatter(
 												article.created_at
 											)}`}
 											<br />
 											{article.author}
-											<hr />
 										</Typography>
 										<CardMedia
 											sx={{ height: 500 }}
