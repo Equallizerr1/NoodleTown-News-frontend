@@ -23,6 +23,8 @@ export const Article = () => {
 	const { article_id } = useParams();
 
 	const [article, setArticle] = useState([]);
+	const [isClickedUp, setIsClickedUp] = useState(false);
+	const [isClickedDown, setIsClickedDown] = useState(false);
 
 	useEffect(() => {
 		getArticleById(article_id).then(({ article }) => {
@@ -69,16 +71,26 @@ export const Article = () => {
 									</CardContent>
 									<CardActions>
 										<IconButton
+											disabled={isClickedUp}
 											onClick={() => {
 												voteCounter(article.article_id, "+");
+												if (!isClickedUp) {
+													setIsClickedUp(true);
+													setIsClickedDown(false);
+												}
 											}}
 											aria-label="upvote arrow">
 											<ArrowCircleUpIcon />
 										</IconButton>
 										<Typography>{`${article.votes} votes`}</Typography>
 										<IconButton
+											disabled={isClickedDown}
 											onClick={() => {
 												voteCounter(article.article_id, "-");
+												if (!isClickedDown) {
+													setIsClickedDown(true);
+													setIsClickedUp(false);
+												}
 											}}
 											aria-label="downvote arrow">
 											<ArrowCircleDownIcon />
