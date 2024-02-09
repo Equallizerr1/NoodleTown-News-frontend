@@ -4,8 +4,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import { useState, useEffect } from "react";
 import { getComments } from "../../utils/api";
 
@@ -43,11 +43,20 @@ export const Comments = ({ id }) => {
 										</Typography>
 									</CardContent>
 									<CardActions>
-										<IconButton aria-label="add to favourites">
-											<FavoriteIcon />
+										<IconButton
+											onClick={() => {
+												voteCounter(comment.comment_id, "+");
+											}}
+											aria-label="upvote arrow">
+											<ArrowCircleUpIcon />
 										</IconButton>
-										<IconButton aria-label="share">
-											<ShareIcon />
+										<Typography>{`${comment.votes} votes`}</Typography>
+										<IconButton
+											onClick={() => {
+												voteCounter(comment.comment_id, "-");
+											}}
+											aria-label="downvote arrow">
+											<ArrowCircleDownIcon />
 										</IconButton>
 									</CardActions>
 								</Card>
