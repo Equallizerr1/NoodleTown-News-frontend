@@ -22,6 +22,7 @@ export const Comments = ({ id }) => {
 		<>
 			<h5>{` ${comments.length} Comments`}</h5>
 			<CommentBox
+				id={id}
 				sx={{
 					display: "block",
 					margin: "auto",
