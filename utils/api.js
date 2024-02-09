@@ -30,14 +30,21 @@ export const getComments = (article_id) => {
 		});
 };
 
-// PATCH data format = {inc_votes: 1,} {inc_votes: -1,}
+// PATCH data format = {inc_votes: +1,} {inc_votes: -1,}
 
 export const vote = (article_id, voteData) => {
-
 	return ntnewsApi
 		.patch(`/articles/${article_id}`, voteData)
 		.then(({ data: { article } }) => {
 			return article.votes;
+		});
+};
+
+export const postComment = (article_id, commentData) => {
+	return ntnewsApi
+		.post(`/articles/${article_id}/comments`, commentData)
+		.then(({ data: { body } }) => {
+			return body;
 		});
 };
 

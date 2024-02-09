@@ -1,8 +1,6 @@
-export const dateFormatter = (date) => {
-	const dateSlice = date.slice(0, 10);
-	const dateSplit = dateSlice.split("-");
-	const newDate = `${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}`;
-	return newDate;
+export const dateFormatter = (strDate) => {
+	const date = new Date(strDate);
+	return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 };
 
 export const timeAgo = (input) => {

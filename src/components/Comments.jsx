@@ -8,6 +8,7 @@ import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import { useState, useEffect } from "react";
 import { getComments } from "../../utils/api";
+import { CommentBox } from "./CommentBox";
 
 export const Comments = ({ id }) => {
 	const [comments, setComments] = useState([]);
@@ -19,11 +20,19 @@ export const Comments = ({ id }) => {
 
 	return (
 		<>
+			<h5>{` ${comments.length} Comments`}</h5>
+			<CommentBox
+				id={id}
+				sx={{
+					display: "block",
+					margin: "auto",
+				}}></CommentBox>
 			{!comments.length ? (
-				<p>{` ${comments.length} Comments`}</p>
+				<>
+					<hr />
+				</>
 			) : (
 				<>
-					<h5>{` ${comments.length} Comments`}</h5>
 					<ul>
 						{comments.map((comment) => (
 							<li key={comment.comment_id}>
